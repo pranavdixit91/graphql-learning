@@ -5,9 +5,17 @@ type Book {
     pages: Int!
 }
 
+type Bestseller {
+    id: ID!
+    category: String!
+    bookIds: [ID!]!
+}
+
 type Query {
     getAllBooks: [Book]!
     getBookById(id: ID!): Book
+    getAllBestSellers: [Bestseller]
+    topBestsellers(category: String!): [Book]!
 }
 
 type Mutation {

@@ -2,6 +2,7 @@ package com.pranav.graphql.resolver;
 
 import com.pranav.graphql.model.Book;
 import com.pranav.graphql.repository.BookRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -17,6 +18,7 @@ public class BookResolver {
         this.bookRepository = bookRepository;
     }
 
+    @Cacheable(value = "books")
     @QueryMapping
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
