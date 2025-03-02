@@ -1,0 +1,57 @@
+Query to get all Books:
+query {
+  getAllBooks {
+    id
+    title
+    author
+  }
+}
+
+Response of Query:
+{
+  "data": {
+    "getAllBooks": [
+      {
+        "id": "67c44f051618057305379aef",
+        "title": "Chhava"
+      },
+      {
+        "id": "67c44f211618057305379af0",
+        "title": "Natasamrat"
+      },
+      {
+        "id": "67c4515279e8367810d5aa45",
+        "title": "Test 1"
+      },
+      {
+        "id": "67c4516679e8367810d5aa46",
+        "title": "Test 2"
+      }
+    ]
+  }
+}
+
+Query to get book by Id:
+query {
+	getBookById(id:"67c44f211618057305379af0") {
+    id
+    title
+    author
+  }
+}
+
+
+Mutation to Delete the Book:
+mutation {
+  deleteBookById(id: "67c4525a3fe3dc20b6599295")
+}
+
+Mutation to Add the Book:
+mutation {
+  addBook(title:"Test 2", author:"A 1", pages: 1) {
+    id
+    title
+    author
+    pages
+  }
+}
